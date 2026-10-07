@@ -12,6 +12,8 @@
   --space-small: 0.5rem;
   --space: 1rem;
   --space-big: 2rem;
+
+  --focus-ring-color: black;
 }
 
 * {
@@ -68,10 +70,42 @@ body {
   cursor: pointer;
 }
 
+.state-button:hover,
+.state-button:focus-visible {
+  color: var(--extra-color);
+  background-color: var(--primary-color);
+}
+
+.state-button:focus-visible {
+  outline: 3px solid var(--focus-ring-color);
+  outline-offset: 4px;
+}
+
+.state-button:active {
+  transform: scale(0.92);
+}
+
+.state-button,
+.state-link {
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.15s ease;
+}
+
+
 .state-link {
   font-weight: bold;
   color: var(--secondary-color);
 }
+
+.state-link:hover,
+.state-link:focus-visible {
+  color: var(--triadic-color);
+}
+
+.state-link:focus-visible {
+  outline: 3px solid var(--focus-ring-color);
+  outline-offset: 4px;
+}
+
 
 /* YOUR CODE: Lab 1 states (:hover, :focus-visible, :active) */
 
@@ -97,6 +131,7 @@ body {
   transition: width 2s;
 }
 
+
 /* Hovering the track makes every racer run to the finish line */
 .race:hover .racer {
   width: 100%;
@@ -104,7 +139,29 @@ body {
 
 /* YOUR CODE: Lab 2 timing functions (one per racer) */
 
+.racer-linear {
+  transition-timing-function: linear;
+}
 
+.racer-ease {
+  transition-timing-function: ease;
+}
+
+.racer-ease-in {
+  transition-timing-function: ease-in;
+}
+
+.racer-ease-out {
+  transition-timing-function: ease-out;
+}
+
+.racer-ease-in-out {
+  transition-timing-function: ease-in-out;
+}
+
+.racer-mine {
+  transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
 
 
 /* ---------- Lab 3: Transform Tiles ---------- */
@@ -124,12 +181,32 @@ body {
   text-decoration: none;
   color: var(--extra-color);
   background: var(--triadic-color);
+
+  transition: all 0.4s ease;
 }
 
 /* YOUR CODE: Lab 3 transforms (lift, grow, spin, tilt) */
 
+.tile-lift:hover,
+.tile-lift:focus-visible {
+  transform: translateY(-0.2in);
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
+}
 
+.tile-grow:hover,
+.tile-grow:focus-visible {
+  transform: scale(1.1);
+}
 
+.tile-spin:hover,
+.tile-spin:focus-visible {
+  transform: rotate(360deg);
+}
+
+.tile-tilt:hover,
+.tile-tilt:focus-visible {
+  transform: rotate(10deg);
+}
 
 /* ---------- Lab 4: My Hover Gallery ---------- */
 .gallery {
@@ -147,9 +224,52 @@ body {
   color: var(--primary-color);
   background: var(--extra-color);
   border: 2px solid #DDDDDD;
+
+  transition: all 0.35s ease;
 }
 
 /* YOUR CODE: Lab 4, six effects */
+
+.effect-1:hover,
+.effect-1:focus-visible {
+  box-shadow: 10+px 10px 20px 20px rgba(255, 0, 0, 0.4);
+}
+
+.effect-2:hover,
+.effect-2:focus-visible {
+  transform: translate(0, -40px);
+  background-color: black;
+  color: red;
+}
+
+.effect-3:hover,
+.effect-3:focus-visible {
+  transform: scale(5.5);
+  background-color: rgb(237, 237, 162);
+}
+
+.effect-4:hover,
+.effect-4:focus-visible {
+  transform: rotate(72000deg);
+  color: var(--contrast-color);
+  background-color: var(--triadic-color);
+  border-color: var(--primary-color);
+}
+
+.effect-5:hover,
+.effect-5:focus-visible {
+  color: var(--extra-color);
+  background-color: var(--primary-color);
+}
+
+.effect-6:hover,
+.effect-6:focus-visible {
+  letter-spacing: 0.1em;
+  font-size: 30px;
+  font-weight: 700;
+  color: black;
+}
+
 
 
 
